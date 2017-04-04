@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>contact app Pasi Viinanen</title>
+
+
+    <script type="text/javascript" src=app.js"></script>
+    <script type="text/javascript" src="contact.js"></script>
+    <script type="text/javascript" src="contact-store.js"></script>
+    <script type="text/javascript" src="javascript.js"></script>
+
+</head>
+
+//
+//<body> onload="bodyOnLoad()"
+
+<header>
+
+    <h1 style="background-color: cornflowerblue;">
+        Ekoodi harjoitus
+    </h1>
+
+
+
+    <h3 style="background-color: cornflowerblue;">
+        Contact app Pasi Viinanen
+    </h3>
+
+
+    <style>
+
+        body
+        {
+            background-color: lightblue;
+        }
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+
+
+
+
+
+
+</header>
+
+<p style="background-color: cornsilk;">
+
+
+<h2>New Contact</h2>
+<table id="inputTable">
+    <tr><td>First name</td><td><input id="firstName" type="text" ></td> </tr>
+    <tr><td>Last name</td><td><input id="lastName" type="text" ></td></tr>
+    <tr><td>Phone</td><td><input id="phone" type="tel" ></td></tr>
+    <tr><td>Street address</td><td><input id="streetAddress" type="text" ></td></tr>
+    <tr><td>City</td><td><input id="city" type="text" ></td></tr>
+</table>
+
+
+<div class="mdl-card__actions">
+    <a onclick="saveContact()" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Add</a>
+</div>
+
+<input class="btnAdd" type="button" value="Add" id="add"
+       onclick="addContact()">
+
+
+<form>
+
+
+</form>
+
+<script>
+    //"Namespace"
+    var contactsApp = {};
+
+    contactsApp.contactA= {};
+    contactsApp.contactB= {};
+
+ 
+    
+    function saveContacts() {
+        
+    }
+    function  buildContactsFromInput() {
+        
+    }
+
+</script>
+
+<script>
+
+    function saveContact() {
+        contactsApp.contactStore.saveContact(buildContactFromInput());
+        var saved = contactsApp.contactStore.loadContacts();
+        contactsApp.contactTableHelper.rebuildTableWithContacts(
+            document.getElementById('contactTable'),
+            saved);
+    }
+
+    function buildContactFromInput() {
+        return contactsApp.contact(
+            document.getElementById('firstName').value,
+            document.getElementById('lastName').value,
+            document.getElementById('phone').value,
+            document.getElementById('streetAddress').value,
+            document.getElementById('city').value
+        );
+    }
+
+    contactsApp.contactTableHelper.rebuildTableWithContacts(
+        document.getElementById('contactTable'),
+        contactsApp.contactStore.loadContacts());
+
+</script>
+
+
+
+<h3> Contacts</h3>
+
+
+
+
+
+
+
+
+
+
+<button type="button" onclick="addFunction()">Clear all</button>
+<button type="button" onclick="addFunction()">Edit</button>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="footer"> Ekoodi Pasi Viinanen 2017</div>
+
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d86366.81070688712!2d29.28198168805803!3d61.42352781214525!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x5b4c234ba8f1eeea!2sTietotekniikkapalvelut+Pasi+Viinanen!5e0!3m2!1sfi!2sfi!4v1490183658556"
+        width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+
+
+</body>
+</html>
